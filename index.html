@@ -38,11 +38,11 @@
     <!-- <div id="profileArea" class="profile-area" role="button" tabindex="0" aria-label="Upload profile picture">
      <img id="profileImg" src="profile/profile.jpg" alt="Profile Photo">
       <!-- <img id="profileImg" alt="Profile" src="profile/profile.jpg" /> -->
-      <div id="uploadText">
+      <!-- <div id="uploadText">
         <div class="plus">+</div>
         <p>Click to Add Profile Photo</p>
       </div>
-    </div> -->
+    </div>  -->
 
     <div id="profileArea" class="profile-area">
     <img id="profileImg" src="profile/profile.jpg" alt="Profile Photo">
@@ -401,23 +401,24 @@ window.addEventListener("load", () => {
 // });
 
 // Upload photo
-photoInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
 
-  if (!file) return;
+// photoInput.addEventListener("change", (e) => {
+//   const file = e.target.files[0];
 
-  const reader = new FileReader();
+//   if (!file) return;
 
-  reader.onload = function () {
-    profileImg.src = reader.result;
-    profileImg.style.display = "block";
-    uploadText.style.display = "none";
+//   const reader = new FileReader();
 
-    localStorage.setItem("profilePhoto", reader.result);
-  };
+//   reader.onload = function () {
+//     profileImg.src = reader.result;
+//     profileImg.style.display = "block";
+//     uploadText.style.display = "none";
 
-  reader.readAsDataURL(file);
-});
+//     localStorage.setItem("profilePhoto", reader.result);
+//   };
+
+//   reader.readAsDataURL(file);
+// });
 </script>
 
 </body>
