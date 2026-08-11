@@ -33,25 +33,12 @@
   </div>
 
   <div class="profile-card" id="profileCard">
-    <!-- <input type="file" id="photoInput" accept="image/*" hidden> -->
-
-    <!-- <div id="profileArea" class="profile-area" role="button" tabindex="0" aria-label="Upload profile picture">
-     <img id="profileImg" src="profile/profile.jpg" alt="Profile Photo">
-      <!-- <img id="profileImg" alt="Profile" src="profile/profile.jpg" /> -->
-      <!-- <div id="uploadText">
-        <div class="plus">+</div>
-        <p>Click to Add Profile Photo</p>
-      </div>
-    </div>  -->
+   
 
     <div id="profileArea" class="profile-area">
     <img id="profileImg" src="profile/profile.jpg" alt="Profile Photo">
 </div>
 
-    <div class="profile-actions">
-      <!-- <button class="profile-btn" type="button" ondbclick="changeProfilePicture()">Upload / Change Photo</button> -->
-      <!-- <button class="profile-btn secondary" type="button" onclick="removeProfilePicture()">Remove Photo</button> -->
-    </div>
   </div>
 </header>
 
@@ -129,216 +116,11 @@
 <footer>
   <p>© 2026 Shafiq Ahamed NJ | Portfolio</p>
 </footer>
-<!-- 
+
+
 <script>
 
-function addSkill(){
-  const skill = prompt("Enter Skill Name:");
-  if(skill){
-    const container = document.getElementById("skillsContainer");
 
-    const div = document.createElement("div");
-    div.className = "skill";
-    div.innerText = skill;
-
-    container.appendChild(div);
-  }
-}
-
-function addProject(){
-  const title = prompt("Project Title:");
-  const desc = prompt("Project Description:");
-  const link = prompt("Project Link:");
-
-  if(title && desc){
-    const container = document.getElementById("projectsContainer");
-
-    const card = document.createElement("div");
-    card.className = "project-card";
-
-    card.innerHTML = `
-      <h3>${title}</h3>
-      <p>${desc}</p>
-      <a href="${link}" target="_blank">Project Link</a>
-    `;
-
-    container.appendChild(card);
-  }
-}
-
-const reveals = document.querySelectorAll('.reveal');
-
-window.addEventListener('scroll', () => {
-  reveals.forEach(reveal => {
-    const windowHeight = window.innerHeight;
-    const revealTop = reveal.getBoundingClientRect().top;
-    const revealPoint = 100;
-
-    if(revealTop < windowHeight - revealPoint){
-      reveal.classList.add('active');
-    }
-  });
-});
-
-// Profile picture: upload/change + remove (with localStorage)
-const photoInput = document.getElementById("photoInput");
-const profileImg = document.getElementById("profileImg");
-const uploadText = document.getElementById("uploadText");
-const profileArea = document.getElementById("profileArea");
-const profileCard = document.getElementById("profileCard");
-
-function loadSavedProfilePhoto() {
-  const saved = localStorage.getItem("profilePhoto");
-  if (saved) {
-    profileImg.src = saved;
-    profileImg.style.display = "block";
-    uploadText.style.display = "none";
-  }
-}
-
-loadSavedProfilePhoto();
-
-function showSelectedImage(dataUrl) {
-  profileImg.src = dataUrl;
-  profileImg.style.display = "block";
-  uploadText.style.display = "none";
-  localStorage.setItem("profilePhoto", dataUrl);
-}
-
-function changeProfilePicture() {
-  // photoInput.click();
-  photoInput.doubleClick();
-}
-
-photoInput.addEventListener("change", (e) => {
-  const file = e.target.files && e.target.files[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-  reader.onload = (ev) => showSelectedImage(ev.target.result);
-  reader.readAsDataURL(file);
-});
-
-function removeProfilePicture() {
-  localStorage.removeItem("profilePhoto");
-  profileImg.src = "";
-  profileImg.style.display = "none";
-  uploadText.style.display = "flex";
-  photoInput.value = "";
-}
-
-// Click behavior: click image area to open file picker (if no image yet)
-if (profileArea && photoInput) {
-  profileArea.addEventListener("dblclick", () => {
-    // If already has a photo, just open the change picker for convenience
-    // (still keeps Remove button available)
-    changeProfilePicture();
-  });
-}
-
-// Backward compatibility for older onclick handlers
-function addprofilepicture() { changeProfilePicture(); }
-
-
-
-
-
-
-const input = document.getElementById("photoInput");
-const img = document.getElementById("profileImg");
-const text = document.getElementById("uploadText");
-const menu = document.getElementById("photoMenu");
-const area = document.getElementById("profileArea");
-
-function loadSaved(){
- const saved = localStorage.getItem("profilePhoto");
- if(saved){
-   img.src = saved;
-   img.style.display = "block";
-   text.style.display = "none";
- }
-}
-loadSaved();
-
-area.addEventListener("dbclick", ()=>{
- if(img.style.display === "block"){
-   menu.classList.toggle("show");
- } else {
-   input.doubleClick();
- }
-});
-
-input.addEventListener("change",(e)=>{
- const file = e.target.files[0];
- if(!file) return;
-
- const reader = new FileReader();
- reader.onload = function(){
-   localStorage.setItem("profilePhoto", reader.result);
-   img.src = reader.result;
-   img.style.display = "block";
-   text.style.display = "none";
-   menu.classList.remove("show");
- }
- reader.readAsDataURL(file);
-});
-
-function changePhoto(){
- menu.classList.remove("show");
- input.doubleClick();
-}
-
-function removePhoto(){
- localStorage.removeItem("profilePhoto");
- img.src = "";
- img.style.display = "none";
- text.style.display = "flex";
- menu.classList.remove("show");
-}
-
-document.addEventListener("click",(e)=>{
- if(!area.contains(e.target) && !menu.contains(e.target)){
-   menu.classList.remove("show");
- }
-});
-
-
-</script> -->
-
-<script>
-function addSkill() {
-  const skill = prompt("Enter Skill Name:");
-  if (skill) {
-    const container = document.getElementById("skillsContainer");
-
-    const div = document.createElement("div");
-    div.className = "skill";
-    div.innerText = skill;
-
-    container.appendChild(div);
-  }
-}
-
-function addProject() {
-  const title = prompt("Project Title:");
-  const desc = prompt("Project Description:");
-  const link = prompt("Project Link:");
-
-  if (title && desc) {
-    const container = document.getElementById("projectsContainer");
-
-    const card = document.createElement("div");
-    card.className = "project-card";
-
-    card.innerHTML = `
-      <h3>${title}</h3>
-      <p>${desc}</p>
-      <a href="${link}" target="_blank">Project Link</a>
-    `;
-
-    container.appendChild(card);
-  }
-}
 
 // Scroll Reveal Animation
 const reveals = document.querySelectorAll(".reveal");
@@ -358,67 +140,22 @@ window.addEventListener("scroll", () => {
 // Profile Picture System
 // ==========================
 
-const photoInput = document.getElementById("photoInput");
-const profileImg = document.getElementById("profileImg");
-const uploadText = document.getElementById("uploadText");
-const profileArea = document.getElementById("profileArea");
+
+// const profileImg = document.getElementById("profileImg");
+// const uploadText = document.getElementById("uploadText");
+// const profileArea = document.getElementById("profileArea");
 
 // Load saved photo
-window.addEventListener("load", () => {
-  const savedPhoto = localStorage.getItem("profilePhoto");
+// window.addEventListener("load", () => {
+  // const savedPhoto = localStorage.getItem("profilePhoto");
 
-  if (savedPhoto) {
-    profileImg.src = savedPhoto;
-    profileImg.style.display = "block";
-    uploadText.style.display = "none";
-  }
-});
-
-// Double click empty area → Upload photo
-// profileArea.addEventListener("dblclick", () => {
-//   if (profileImg.style.display !== "block") {
-//     photoInput.click();
-//   }
+  // if (savedPhoto) {
+    // profileImg.src = savedPhoto;
+    // profileImg.style.display = "none";
+    // uploadText.style.display = "none";
+  // }
 // });
 
-// Double click photo → Remove photo
-// profileImg.addEventListener("dblclick", (e) => {
-//   e.stopPropagation();
-
-//   const confirmDelete = confirm(
-//     "Do you want to remove your profile picture?"
-//   );
-
-//   if (!confirmDelete) return;
-
-//   localStorage.removeItem("profilePhoto");
-
-//   profileImg.src = "";
-//   profileImg.style.display = "none";
-//   uploadText.style.display = "flex";
-
-//   photoInput.value = "";
-// });
-
-// Upload photo
-
-// photoInput.addEventListener("change", (e) => {
-//   const file = e.target.files[0];
-
-//   if (!file) return;
-
-//   const reader = new FileReader();
-
-//   reader.onload = function () {
-//     profileImg.src = reader.result;
-//     profileImg.style.display = "block";
-//     uploadText.style.display = "none";
-
-//     localStorage.setItem("profilePhoto", reader.result);
-//   };
-
-//   reader.readAsDataURL(file);
-// });
 </script>
 
 </body>
